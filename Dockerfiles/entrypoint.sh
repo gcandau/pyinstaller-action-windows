@@ -40,6 +40,7 @@ echo "$@"
 if [[ "$@" == "" ]]; then
     pyinstaller --clean -y --dist ./dist/windows --workpath /tmp *.spec
     chown -R --reference=. ./dist/windows
+    zip ./dist/archive.zip ./dist/windows/*.exe
 else
     sh -c "$@"
 fi # [[ "$@" == "" ]]
